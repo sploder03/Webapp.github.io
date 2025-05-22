@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Math Quiz</title>
+  <link rel="stylesheet" href="Styles.css">
+</head>
+<body>
+  <audio id="correct-sound" src="Correct sound effect and wrong sound effect_256k(2).mp3" preload="auto"></audio>
+  <audio id="wrong-sound" src="Correct sound effect and wrong sound effect_256k(3).mp3" preload="auto"></audio>
+  <audio id="ticking-sound" src="Clock Ticking Sound Effect_256k.mp3" preload="auto" loop></audio>
+  <audio id="confetti-sound" src="25 confetti Sound effect_256k.mp3" preload="auto"></audio>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <div class="container">
+    <h1>Maths Quiz</h1>
+    <div id="level-selection">
+      <h2>Select Level:</h2>
+      <button onclick="startQuiz(0)">Level 0</button>
+      <button onclick="startQuiz(1)">Level 1</button>
+      <button onclick="startQuiz(2)">Level 2</button>
+    </div>
+
+    <div id="quiz-section" class="hidden">
+      <h2>Level <span id="current-level"></span> Quiz</h2>
+      <div id="question-number"></div> <!-- Display current question number -->
+      <div id="question"></div>
+      <input type="number" id="answer" placeholder="Your answer">
+      <button onclick="checkAnswer()">Submit Answer</button>
+      <div id="timer">Time left: 10s</div>
+      <div id="feedback"></div>
+      <div id="score">Score: <span id="score-value">0</span></div>
+      <button id="next-question" class="hidden" onclick="nextQuestion()">Next Question</button>
+    </div>
+
+    <div id="result-section" class="hidden">
+      <h2>Quiz Complete!</h2>
+      <p>Your Score: <span id="final-score"></span></p>
+      <p id="score-message"></p> <!-- Display message based on score -->
+      <button onclick="restartQuiz()">Go Back</button>
+    </div>
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
